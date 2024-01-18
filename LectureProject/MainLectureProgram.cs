@@ -233,5 +233,36 @@ class MainLectureProgram
         Console.WriteLine(myStringList.containsPattern("C3"));
 
     }
+
+    /// <summary>
+    /// Reflection allows to get the metadata of assemblily, Class, Interface etc on runtime, without creating 
+    /// compile-time dependency. We can get information of Properties and mthods and also the Parameter Info of
+    /// methods. We can invoke methods dynamically. We can Automate certain processes, for example: 
+    /// 1. Adding the services available in a certain layer in the class o another app layer. 
+    /// 2. Adding more functionality to the application which is running in production, without hurting the current
+    /// functionality. the updated DLL can be used as a plugin.
+    /// </summary>
+    public static void UseReflection() 
+    {
+        AptechStudent.desc = "Testing";
+        // Get Type of ExampleClass
+        Type classType =  typeof(AptechStudent);
+
+        // Iterate through properties and get names & types
+        foreach (PropertyInfo property in classType.GetProperties())
+        {
+            Console.WriteLine($"{property.Name} ({property.PropertyType.Name})");
+        }
+
+        // Create an instance 
+        object instance = Activator.CreateInstance(classType);
+        
+        if (instance != null)
+        {            
+            MethodInfo method = instance.GetType().GetMethod("PrintStaticvalue");
+            method.Invoke(instance, null);
+        }
+
+    }
 }
 
