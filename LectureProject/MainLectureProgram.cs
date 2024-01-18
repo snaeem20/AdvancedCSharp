@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using static System.Formats.Asn1.AsnWriter;
 using Generics;
+using System.Reflection;
+using AnonamousMethods;
 
 /// <summary>
 /// This class contains all the examples of C# Lecture
@@ -13,7 +15,8 @@ class MainLectureProgram
 {
     static void Main(string[] arg)
     {
-
+        UseReflection();
+        CallPartialClassExample();
     }
 
     /// <summary>
@@ -154,6 +157,7 @@ class MainLectureProgram
     /// </summary>
     /// <param name="value">integer value</param>
     /// <returns></returns>
+    
     delegate int DelGetValue(int value);
 
     /// <summary>
@@ -244,18 +248,18 @@ class MainLectureProgram
     /// </summary>
     public static void UseReflection() 
     {
-        AptechStudent.desc = "Testing";
+        CourseStudent.desc = "Testing";
         // Get Type of ExampleClass
-        Type classType =  typeof(AptechStudent);
+        Type type =  typeof(CourseStudent);
 
         // Iterate through properties and get names & types
-        foreach (PropertyInfo property in classType.GetProperties())
+        foreach (PropertyInfo property in type.GetProperties())
         {
             Console.WriteLine($"{property.Name} ({property.PropertyType.Name})");
         }
 
         // Create an instance 
-        object instance = Activator.CreateInstance(classType);
+        object instance = Activator.CreateInstance(type);
         
         if (instance != null)
         {            
@@ -264,5 +268,15 @@ class MainLectureProgram
         }
 
     }
+
+    /// <summary>
+    /// Partial Classs
+    /// </summary>
+    public static void CallPartialClassExample()
+    {
+        PartialClassLecture.DetailedClass pClassObject = new PartialClassLecture.DetailedClass();
+        pClassObject.DisplayDetails();
+    }
+
 }
 
