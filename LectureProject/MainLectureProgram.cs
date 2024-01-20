@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GenericInterface;
-using Session12;
+using StaticVsReadOnlyVsConst;
 using System;
 using System.Collections.Generic;
 using static System.Formats.Asn1.AsnWriter;
@@ -15,8 +15,7 @@ class MainLectureProgram
 {
     static void Main(string[] arg)
     {
-        UseReflection();
-        CallPartialClassExample();
+        CallStaticAndReadOnlyExample();
     }
 
     /// <summary>
@@ -105,8 +104,8 @@ class MainLectureProgram
     /// </summary>
     public static void CallClassConstructorExample()
     {
-        Session12.AptechStudent aptechStudent = new Session12.AptechStudent();
-        Session12.AptechStudent aptechStudent2 = new Session12.AptechStudent("sAMIA", 5);
+        StaticVsReadOnlyVsConst.AptechStudent aptechStudent = new StaticVsReadOnlyVsConst.AptechStudent();
+        StaticVsReadOnlyVsConst.AptechStudent aptechStudent2 = new StaticVsReadOnlyVsConst.AptechStudent("sAMIA", 5);
     }
 
     /// <summary>
@@ -248,8 +247,8 @@ class MainLectureProgram
     /// </summary>
     public static void UseReflection() 
     {
-        CourseStudent.desc = "Testing";
-        // Get Type of ExampleClass
+        //CourseStudent.desc = "Testing";
+        // Get Type of CourseStudent
         Type type =  typeof(CourseStudent);
 
         // Iterate through properties and get names & types
@@ -276,6 +275,12 @@ class MainLectureProgram
     {
         PartialClassLecture.DetailedClass pClassObject = new PartialClassLecture.DetailedClass();
         pClassObject.DisplayDetails();
+    }
+
+    public static void CallStaticAndReadOnlyExample()
+    {
+        CourseStudent courseStudent = new CourseStudent("Ali");
+        courseStudent.PrintStaticvalue();
     }
 
 }

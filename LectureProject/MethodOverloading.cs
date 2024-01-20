@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Session12
+namespace StaticVsReadOnlyVsConst
 {
     internal class MethodOverloading<M,N>
     {
