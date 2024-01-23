@@ -7,6 +7,7 @@ using static System.Formats.Asn1.AsnWriter;
 using Generics;
 using System.Reflection;
 using AnonamousMethods;
+using LectureProject;
 
 /// <summary>
 /// This class contains all the examples of C# Lecture
@@ -15,7 +16,7 @@ class MainLectureProgram
 {
     static void Main(string[] arg)
     {
-        CallStaticAndReadOnlyExample();
+        SwitchCaseExample();
     }
 
     /// <summary>
@@ -277,10 +278,61 @@ class MainLectureProgram
         pClassObject.DisplayDetails();
     }
 
+    /// <summary>
+    /// Static, ReadOnly AND Const Example
+    /// </summary>
     public static void CallStaticAndReadOnlyExample()
     {
         CourseStudent courseStudent = new CourseStudent("Ali");
         courseStudent.PrintStaticvalue();
+    }
+
+    /// <summary>
+    /// Switch Case example
+    /// </summary>
+    public static void SwitchCaseExample()
+    {
+        Console.WriteLine("Input a number from 2 to 5:");
+        int num = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter 1 to calculate SQUARE\nEnter 2 to calculate SQURE ROOT");
+        int option = int.Parse(Console.ReadLine());
+
+        switch (option)
+        {
+            case 1:
+                Console.WriteLine($"Square of {num} is {num * num}");
+                break;
+            case 2:
+                double sqRoot = Math.Pow(num, (double)1/2);
+                Console.WriteLine($"Square root of {num} is {sqRoot}");
+                break;            
+            default:
+                Console.WriteLine("Wrong option entered!");
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Lambda Expressions Example
+    /// </summary>
+    public static void LambdaExpressionExample()
+    {
+        LambdaExpressions.CalculatePowers();
+    }
+
+    public static void CallOutAndRefExample()
+    {
+        //The out parameters can be passed either assigned or unassigned
+        int dbl, hlf = 9;
+        OutAndRefExample.OperateIfPositive(10, out dbl, out hlf);
+
+        Console.WriteLine(dbl);
+        Console.WriteLine(hlf);
+
+        //The ref parameter has to be assiged before passing.
+        int number = 10;
+        OutAndRefExample.DoubleTheNumber(ref number);
     }
 
 }
