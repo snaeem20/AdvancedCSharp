@@ -10,7 +10,7 @@ namespace LectureProject
     {
         /// <summary>
         /// 1. out parameter has to be assigned a value before exiting from the method
-        /// 2. we ca have more than 1 out parameters in a method as aurguments
+        /// 2. we can have more than 1 out parameters in a method as aurguments
         /// </summary>
         /// <param name="num"></param>
         /// <param name="doubledNumber"></param>
