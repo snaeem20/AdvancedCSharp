@@ -28,5 +28,10 @@ namespace LectureProject
             Console.WriteLine(calPower(num, pow));
 
         }
+
+        public static void iterateList()
+        {
+            
+        }
     }
 }
