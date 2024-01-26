@@ -23,7 +23,7 @@ namespace LectureProject
             int pow = int.Parse(Console.ReadLine());
 
             //using lambda expression for delegates.
-            DelCalculatePowers calPower = (value, power) => Math.Pow(value, (double)power);
+            DelCalculatePowers calPower = (value, power) => Math.Pow(value, power);
 
             Console.WriteLine(calPower(num, pow));
 
