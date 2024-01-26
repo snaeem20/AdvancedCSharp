@@ -12,18 +12,18 @@ namespace LectureProject
     /// </summary>
     internal static class LambdaExpressions
     {
-        public delegate int DelCalculatePowers(int value, int power);
+        public delegate double DelCalculatePowers(int value, int power);
 
         public static void CalculatePowers()
         {
             Console.WriteLine("Input Number:");
             int num = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Input Powergreater than 1 and less than 6:");
+            Console.WriteLine("Input Power greater from 1 to 5:");
             int pow = int.Parse(Console.ReadLine());
 
             //using lambda expression for delegates.
-            DelCalculatePowers calPower = (value, power) => value ^ power;
+            DelCalculatePowers calPower = (value, power) => Math.Pow(value, (double)power);
 
             Console.WriteLine(calPower(num, pow));
 
