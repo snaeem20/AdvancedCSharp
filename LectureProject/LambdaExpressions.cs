@@ -37,5 +37,46 @@ namespace LectureProject
         
             Console.WriteLine(delCompareStrings(s1, s2));
         }
+
+         public static void PrintOrderedList()
+         {
+             List<string> names = new List<string>() { "Kausar", "Zeeshan", "Ali"};
+        
+             IOrderedEnumerable<string> orderedList =  names.OrderBy(value => value);
+        
+             foreach (string s in names.OrderBy(s =>s ))
+             {
+                 Console.WriteLine(s);
+             }
+         }
+
+        public static void SortByName()
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            teachers.Add(new Teacher("Kauser", 110));
+            teachers.Add(new Teacher("Zeeshan", 12));
+            teachers.Add(new Teacher("Ali", 31));
+        
+            IOrderedEnumerable<Teacher> orderedList = teachers.OrderBy(x => x.Id);
+        
+            foreach (var item in orderedList)
+            {
+                Console.WriteLine(item.Name);
+            }
+        }
+        
+        
+        public class Teacher
+        {
+            public Teacher(string name, int id)
+            {
+                Name = name;
+                Id = id;
+            }
+        
+            public string Name { get; set; }
+            public int Id { get; set; }
+        
+        }
     }
 }
