@@ -29,9 +29,13 @@ namespace LectureProject
 
         }
 
-        public static void iterateList()
+        public delegate bool DelCompareStrings(string s1, string s2);
+        public static void IsSame(string s1, string s2)
         {
-            
+            //LambdaExpression with return statement
+            DelCompareStrings delCompareStrings = (str1, str2) => { return str1 == str2; };
+        
+            Console.WriteLine(delCompareStrings(s1, s2));
         }
     }
 }
