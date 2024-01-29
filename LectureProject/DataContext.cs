@@ -9,7 +9,7 @@ namespace LectureProject
 {
     internal class DataContext
     {
-        string constr = "Database=Library;Server=WSAMZN-TB43SPPE\\mainline;Integrated Security=False;uid=TSGMeridian;Password=alp;";
+        string constr = "Database=Library;Server=WSAMZN-TB43SPPE\\mainline;Integrated Security=False;uid=samia;Password=pwrds;";
         SqlConnection _con = new SqlConnection(constr);
         SqlDataAdapter _da = new SqlDataAdapter("Select * From Country", constr);
         DataTable _dt = new DataTable();
