@@ -9,10 +9,13 @@ namespace LectureProject
 {
     internal class DataContext
     {
-        string constr = "Database=Library;Server=WSAMZN-TB43SPPE\\mainline;Integrated Security=False;uid=samia;Password=pwrds;";
-        SqlConnection _con = new SqlConnection(constr);
-        SqlDataAdapter _da = new SqlDataAdapter("Select * From Country", constr);
-        DataTable _dt = new DataTable();
-        _da.Fill(_dt);
+       public LibrarySystemContext() {
+            string connectionString = "Database=LibrarySystem;Server=FACULTY-PC12;Integrated Security=True;";
+            //string connectionString = "Database=LibrarySystem;Server=FACULTY-PC12;Integrated Security=False;uid=samia;Password=pwrds;";
+            //SqlConnection con = new SqlConnection(connectionString);            
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Country", connectionString);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);            
+        }
     }
 }
