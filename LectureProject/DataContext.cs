@@ -10,11 +10,13 @@ namespace LectureProject
 {
     internal class DataContext
     {
-       public static SqlDataAdapter GetLibrarySystemContext() {
+        public static SqlDataAdapter GetLibrarySystemContext()
+        {
             string connectionString = "Database=LibrarySystem;Server=FACULTY-PC12;Integrated Security=True;";
             //string connectionString = "Database=LibrarySystem;Server=FACULTY-PC12;Integrated Security=False;uid=samia;Password=pwrds;";
-            //SqlConnection con = new SqlConnection(connectionString);            
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Country", connectionString);           
+            //SqlConnection connection = new SqlConnection(connectionString);
+            //connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Country", connectionString);
 
             return dataAdapter;
         }

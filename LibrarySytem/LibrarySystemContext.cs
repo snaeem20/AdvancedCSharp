@@ -8,15 +8,38 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem
 {
-    internal static class LibrarySystemContext
+    internal class LibrarySystemContext
     {
+        static string connectionString = "Database=KIBGEPayRoll;Server=DESKTOP-SO2I7BN;Integrated Security=True;";
+        static SqlConnection connection;
 
-        public static SqlDataAdapter GetCountryAdapter() {
-            
-            string connectionString = "Database=LibrarySystem;Server=FACULTY-PC12;Integrated Security=True;";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Country", connectionString);              
-            
+        public LibrarySystemContext()
+        {
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+        }        
+
+        public static SqlDataAdapter GetCountryAdapter() 
+        {   
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Country", connectionString);
             return dataAdapter;
+        }
+
+        public static SqlDataAdapter GetNonBusinessDaysAdapter()
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From NonBusinessDays", connectionString);
+            return dataAdapter;
+        }
+
+        public static SqlDataAdapter GetWeekendsAdapter()
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * From Weekends", connectionString);
+            return dataAdapter;
+        }
+
+        public static void CloseDataContext()
+        {
+            connection.Close();
         }
 
         

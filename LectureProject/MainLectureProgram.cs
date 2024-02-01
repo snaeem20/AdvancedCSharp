@@ -19,7 +19,7 @@ class MainLectureProgram
 {
     static void Main(string[] arg)
     {
-        SwitchCaseExample();
+        
     }
 
     /// <summary>
