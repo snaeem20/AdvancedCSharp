@@ -8,6 +8,9 @@ using Generics;
 using System.Reflection;
 using AnonamousMethods;
 using LectureProject;
+using System.Data.Common;
+using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
 /// This class contains all the examples of C# Lecture
@@ -333,6 +336,19 @@ class MainLectureProgram
         //The ref parameter has to be assiged before passing.
         int number = 10;
         OutAndRefExample.DoubleTheNumber(ref number);
+    }
+
+    public static void GetSQLData()
+    {
+        SqlDataAdapter dataAdapter = DataContext.GetLibrarySystemContext();
+
+        DataTable dataTable = new DataTable();
+        dataAdapter.Fill(dataTable);
+
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Console.WriteLine(row["CountryName"] + " | " + row["CountryCurrency"]);
+        }
     }
 
 }
